@@ -1,0 +1,11 @@
+<div class="video-form">
+  <h5>Video configuration</h5>
+  <form novalidate (ngSubmit)="handleSubmit()" [formGroup]="form">
+    <div class="form-group">
+      <input type="text" class="form-control form-control-sm" placeholder="Video URL" formControlName="link">
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-outline-primary btn-sm btn-block">Ok</button>
+    </div>
+  </form>
+</div>

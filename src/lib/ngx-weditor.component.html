@@ -1,0 +1,15 @@
+<div class="ngx-weditor">
+    <app-toolbar
+      (apply)="applyStyle($event)"
+      (showCode)="showInnerCode($event)"
+      [innerText]="innerText"
+      [disabledToolbar]="disabledToolbar" #toolbarEl>
+    </app-toolbar>
+    <app-editor
+      [showCode]="showCode"
+      (setToolbarState)="setToolbarState($event)"
+      (focusChange)="onEditorFocus($event)"
+      (blurChange)="onEditorBlur($event)"
+      (inputChange)="onEditorInput($event)" #editorEl>
+    </app-editor>
+</div>
