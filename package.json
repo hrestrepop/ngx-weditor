@@ -3,6 +3,18 @@
   "version": "1.0.2",
   "description": "A Simple WYSIWYG Editor for Angular6+ Applications.",
   "author": "Harrisson Restrepo <harrissonrestrepo@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:hrestrepop/ngx-weditor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hrestrepop/ngx-weditor/issues"
+  },
+  "engines": {
+    "node": ">= 8.11.3",
+    "npm": ">= 6.2.0"
+  },
   "keywords": [
     "angular6 editor",
     "angular6 wysiwyg editor",
