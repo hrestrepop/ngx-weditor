@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, ViewChild, EventEmitter, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, EventEmitter, Input } from '@angular/core';
 import { PopoverConfig } from 'ngx-bootstrap/popover';
 
-import { UtilsService } from '../shared/services';
+import { EditorService } from '../shared/services';
 
 export function getPopoverConfig(): PopoverConfig {
   return Object.assign(new PopoverConfig(), {
@@ -18,25 +18,25 @@ export function getPopoverConfig(): PopoverConfig {
   providers: [{ provide: PopoverConfig, useFactory: getPopoverConfig }]
 })
 export class ToolbarComponent implements OnInit {
-  @Input() innerText: string;
-  @Input() disabledToolbar: boolean;
   @Output() apply: EventEmitter<object> = new EventEmitter<object>();
   @Output() showCode: EventEmitter<boolean> = new EventEmitter<boolean>();
-
   @ViewChild('imageTemplate') imageTemplate;
   @ViewChild('linkPopover') linkPopover;
   @ViewChild('videoTemplate') videoTemplate;
 
+  private innerText: string;
+
   constructor(
-    public elementRef: ElementRef,
-    public utils: UtilsService
+    public editor: EditorService
   ) { }
 
+  get disabledToolbar() {
+    return this.editor.disabledToolbar;
+  }
+
   ngOnInit() {
-    this.linkPopover.onShown
-      .subscribe(val => {
-        // console.log('shown ', val);
-      });
+    this.editor.innerText
+      .subscribe(text => this.innerText = text);
   }
 
   get charactersLen(): number {

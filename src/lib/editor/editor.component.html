@@ -5,7 +5,7 @@
     (input)="onEditorInput($event)"
     (click)="onEditorClick($event)" #editorAreaEl>
   </div>
-  <textarea [ngClass]="{'visible': showCode }" (input)="updateHTML($event)">{{ innerHTML }}</textarea>
+  <textarea [ngClass]="{'visible': showCode }" (input)="updateHTML($event)" *ngIf="showCode">{{ innerHTML }}</textarea>
   <app-resizer
     [resizableElement]="resizableElement"
     (removeResizable)="removeResizable()"
