@@ -22,6 +22,14 @@ import { NgxWeditorModule } from 'ngx-weditor';
   ]
 });
 ```
+
+## Inside HTML Form
+
+```html
+<form  novalidate (ngSubmit)="submit()" [formGroup]="form">
+	<app-ngx-weditor formControlName="content"></app-ngx-weditor>
+</form>
+```
 ## License
 
 [MIT](http://vjpr.mit-license.org)
