@@ -31,12 +31,10 @@ export class NgxWeditorComponent implements ControlValueAccessor, OnInit {
   disabled: boolean;
   value: any;
 
-  editorArea: any;
   innerHTML: string;
   innerText: string;
 
   showCode = false;
-  disabledToolbar = false;
 
   constructor(
     private _elementRef: ElementRef,
@@ -45,15 +43,13 @@ export class NgxWeditorComponent implements ControlValueAccessor, OnInit {
   ) { }
 
   ngOnInit() {
-    this.editorArea = this.editorEl.editorAreaEl;
-
-    this.innerText = this.editorEl.innerText;
-    this.innerHTML = this.editorEl.innerHTML;
+    this.editor.innerHTML
+      .subscribe(html => this.innerHTML = html);
   }
 
   writeValue(value: any): void {
     this.value = value;
-    this.editorEl.innerHTML = value;
+    this.editor.patchedValue = value;
     this._renderer.setProperty(this._elementRef.nativeElement, 'value', value);
   }
 
@@ -91,10 +87,6 @@ export class NgxWeditorComponent implements ControlValueAccessor, OnInit {
 
   showInnerCode(evt): void {
     this.showCode = !this.showCode;
-  }
-
-  setToolbarState({ state }) {
-    this.disabledToolbar = state;
   }
 
 }

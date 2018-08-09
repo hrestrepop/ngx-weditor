@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
 import { of } from 'rxjs';
 import { throttleTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -9,41 +9,60 @@ import { EditorService, UtilsService } from '../shared/services';
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss']
 })
-export class EditorComponent implements OnInit {
+export class EditorComponent implements OnInit, OnDestroy {
   @Input() showCode: boolean;
   @Output() inputChange: EventEmitter<any> = new EventEmitter<any>();
   @Output() blurChange: EventEmitter<any> = new EventEmitter<any>();
   @Output() focusChange: EventEmitter<any> = new EventEmitter<any>();
-  @Output() setToolbarState: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('editorAreaEl') editorAreaEl: ElementRef;
   @ViewChild('resizer') resizer: ElementRef;
 
+  private changes: MutationObserver;
+
+  innerHTML: any;
   resizableElement: any;
   blockToolbar = false;
 
   constructor(
-    public _elementRef: ElementRef,
     public editor: EditorService,
     public utils: UtilsService
   ) { }
 
-  get innerHTML() {
-    return this.editorAreaEl.nativeElement.innerHTML;
+  ngOnInit() {
+    const editorArea = this.editorAreaEl.nativeElement;
+
+    if (!!this.editor.patchedValue) {
+      editorArea.innerHTML = this.editor.patchedValue;
+      this.editor.innerHTML = editorArea.innerHTML;
+      this.editor.innerText = editorArea.innerText;
+    }
+
+    this.innerHTML = editorArea.innerHTML;
+
+    this.changes = new MutationObserver(
+      (mutations: MutationRecord[]) => {
+       this.editor.innerHTML = editorArea.innerHTML;
+       this.editor.innerText = editorArea.innerText;
+    });
+
+    this.changes.observe(editorArea, {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
+
+    this.editor.innerHTML
+      .subscribe(html => {
+        if (!this.showCode) {
+          this.innerHTML = html;
+        }
+      });
   }
 
-  get innerText() {
-    return this.editorAreaEl.nativeElement.innerText;
+  ngOnDestroy() {
+    this.changes.disconnect();
   }
-
-  set innerHTML(html) {
-    this.editorAreaEl.nativeElement.innerHTML = html;
-  }
-
-  set innerText(text) {
-    this.editorAreaEl.nativeElement.innerText = text;
-  }
-
-  ngOnInit() {}
 
   onEditorInput(evt) {
     this.inputChange.emit(evt.target);
@@ -84,25 +103,25 @@ export class EditorComponent implements OnInit {
         throttleTime(1000)
       )
       .subscribe(({ value, innerText }) => {
-        this.innerHTML = value;
+        this.editor.innerHTML = value;
+        this.editorAreaEl.nativeElement.innerHTML = value;
         this.inputChange.emit({ innerHTML: value, innerText, value });
     });
   }
 
   updateResizer(element) {
     this.resizableElement = element;
-    this.setToolbarState.emit({ state: true });
+    this.editor.blockToolbar({ state: true });
   }
 
   removeResizable() {
     this.resizableElement.remove();
     this.resizableElement = null;
-    this.inputChange.emit({ innerHTML: this.innerHTML });
   }
 
   private clearResizer() {
     this.resizableElement = null;
-    this.setToolbarState.emit({ state: false });
+    this.editor.blockToolbar({ state: false });
   }
 
 }
