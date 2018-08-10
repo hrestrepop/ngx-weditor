@@ -44,7 +44,7 @@
         <button type="button" [disabled]="disabledToolbar" class="btn btn-light" title="Insert / edit link" [popover]="linkTemplate" #linkPopover="bs-popover"><i class="fa fa-link"></i></button>
         <button type="button" [disabled]="disabledToolbar" class="btn btn-light" title="Remove link" (click)="applyStyle({ key: 'unlink' })"><i class="fa fa-unlink"></i></button>
         <button type="button" [disabled]="disabledToolbar" class="btn btn-light" title="Insert Youtube video" [popover]="videoTemplate" #videoPopover="bs-popover"><i class="fab fa-youtube"></i></button>
-        <button type="button" [disabled]="disabledToolbar" class="btn btn-light" title="Show Code" (click)="showInnerCode()"><i class="fa fa-code"></i></button>
+        <button type="button" class="btn btn-light" title="Show Code" (click)="showInnerCode()"><i class="fa fa-code"></i></button>
         <!-- <button type="button" [disabled]="disabledToolbar" class="btn btn-light" title="Math Formula"><i class="fas fa-subscript"></i> / <i class="fas fa-divide"></i></button> -->
         <button type="button" class="btn btn-light" title="Characters" disabled>Chars: {{ charactersLen }}</button>
     </div>
