@@ -44,7 +44,13 @@ export class NgxWeditorComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit() {
     this.editor.innerHTML
-      .subscribe(html => this.innerHTML = html);
+      .subscribe(html => {
+        this.innerHTML = html;
+        if (html !== this.value) {
+          this.input.emit({ innerHTML: html });
+          this._onChange(html);
+        }
+      });
   }
 
   writeValue(value: any): void {
@@ -87,6 +93,11 @@ export class NgxWeditorComponent implements ControlValueAccessor, OnInit {
 
   showInnerCode(evt): void {
     this.showCode = !this.showCode;
+    if (this.showCode) {
+      this.editor.blockToolbar({ state: true });
+    } else {
+      this.editor.blockToolbar({ state: false });
+    }
   }
 
 }
