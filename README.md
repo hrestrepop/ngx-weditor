@@ -8,6 +8,7 @@
 ## Install
 
 ```bash
+npm i -S ngx-bootstrap
 npm i -S ngx-weditor
 ```
 
