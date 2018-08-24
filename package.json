@@ -1,6 +1,6 @@
 {
   "name": "ngx-weditor",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A Simple WYSIWYG Editor for Angular6+ Applications.",
   "author": "Harrisson Restrepo <harrissonrestrepo@gmail.com>",
   "license": "MIT",
