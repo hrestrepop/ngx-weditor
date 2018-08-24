@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, forwardRef, Output, EventEmitter, ElementRef, Renderer2 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
-import { EditorService } from './shared/services';
+import { EditorService } from './shared/services/editor/editor.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { EditorComponent } from './editor/editor.component';
 
@@ -91,7 +91,7 @@ export class NgxWeditorComponent implements ControlValueAccessor, OnInit {
     this.blur.emit(evt);
   }
 
-  showInnerCode(evt): void {
+  showInnerCode(): void {
     this.showCode = !this.showCode;
     if (this.showCode) {
       this.editor.blockToolbar({ state: true });

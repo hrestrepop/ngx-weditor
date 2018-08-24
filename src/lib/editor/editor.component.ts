@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy, Input, Output, ViewChild, EventEmitter, E
 import { of } from 'rxjs';
 import { throttleTime, distinctUntilChanged } from 'rxjs/operators';
 
-import { EditorService, UtilsService } from '../shared/services';
+import { EditorService } from '../shared/services/editor/editor.service';
+import { UtilsService } from '../shared/services/utils/utils.service';
 
 @Component({
   selector: 'app-editor',

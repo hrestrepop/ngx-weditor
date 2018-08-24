@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, ViewChild, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { PopoverConfig } from 'ngx-bootstrap/popover';
 
-import { EditorService } from '../shared/services';
+import { EditorService } from '../shared/services/editor/editor.service';
 
 export function getPopoverConfig(): PopoverConfig {
   return Object.assign(new PopoverConfig(), {
@@ -19,7 +19,7 @@ export function getPopoverConfig(): PopoverConfig {
 })
 export class ToolbarComponent implements OnInit {
   @Output() apply: EventEmitter<object> = new EventEmitter<object>();
-  @Output() showCode: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() showCode: EventEmitter<boolean> = new EventEmitter<any>();
   @ViewChild('imageTemplate') imageTemplate;
   @ViewChild('linkPopover') linkPopover;
   @ViewChild('videoTemplate') videoTemplate;
@@ -48,7 +48,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   showInnerCode() {
-    this.showCode.emit(true);
+    this.showCode.emit();
   }
 
 }

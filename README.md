@@ -8,7 +8,7 @@
 ## Install
 
 ```bash
-npm i -S ngx-weditor
+npm i -S ngx-weditor ngx-bootstrap
 ```
 
 ## Usage
@@ -30,6 +30,11 @@ import { NgxWeditorModule } from 'ngx-weditor';
 	<app-ngx-weditor formControlName="content"></app-ngx-weditor>
 </form>
 ```
+## Demo
+Go ahead and test before installing
+
+[Demo Link](https://hrestrepop.github.io/ngx-weditor/)
+
 ## License
 
 [MIT](http://vjpr.mit-license.org)
