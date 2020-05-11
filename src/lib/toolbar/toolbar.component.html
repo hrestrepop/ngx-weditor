@@ -1,0 +1,395 @@
+<div class="toolbar">
+  <!-- Heading and text -->
+  <div class="btn-group field has-addons">
+    <div class="control">
+      <button
+        type="button"
+        class="button"
+        title="Heading 1"
+        [disabled]="disabledToolbar"
+        (click)="applyStyle({ key: 'formatBlock', value: 'h1' })"
+      >
+        <span>H1</span>
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Heading 2"
+        (click)="applyStyle({ key: 'formatBlock', value: 'h2' })"
+      >
+        H2
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Heading 3"
+        (click)="applyStyle({ key: 'formatBlock', value: 'h3' })"
+      >
+        H3
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Heading 4"
+        (click)="applyStyle({ key: 'formatBlock', value: 'h4' })"
+      >
+        H4
+      </button>
+    </div>
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Heading 5"
+        (click)="applyStyle({ key: 'formatBlock', value: 'h5' })"
+      >
+        H5
+      </button>
+    </div>
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Heading 6"
+        (click)="applyStyle({ key: 'formatBlock', value: 'h6' })"
+      >
+        H6
+      </button>
+    </div>
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Paragraph"
+        (click)="applyStyle({ key: 'formatBlock', value: 'p' })"
+      >
+        P
+      </button>
+    </div>
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Preformatted text"
+        (click)="applyStyle({ key: 'formatBlock', value: 'pre' })"
+      >
+        pre
+      </button>
+    </div>
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Quote/unquote selection or paragraph"
+        (click)="applyStyle({ key: 'formatBlock', value: 'blockquote' })"
+      >
+        <i class="fas fa-quote-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Formatting -->
+  <div class="btn-group field has-addons">
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Bold"
+        (click)="applyStyle({ key: 'bold' })"
+      >
+        <i class="fas fa-bold"></i>
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Italic"
+        (click)="applyStyle({ key: 'italic' })"
+      >
+        <i class="fas fa-italic"></i>
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Underline"
+        (click)="applyStyle({ key: 'underline' })"
+      >
+        <i class="fas fa-underline"></i>
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Strikethrough"
+        (click)="applyStyle({ key: 'strikeThrough' })"
+      >
+        <i class="fas fa-strikethrough"></i>
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Unordered List"
+        (click)="applyStyle({ key: 'insertUnorderedList' })"
+      >
+        <i class="fas fa-list-ul"></i>
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Ordered List"
+        (click)="applyStyle({ key: 'insertOrderedList' })"
+      >
+        <i class="fas fa-list-ol"></i>
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Redo"
+        (click)="applyStyle({ key: 'redo' })"
+      >
+        <i class="fas fa-redo-alt"></i>
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Undo"
+        (click)="applyStyle({ key: 'undo' })"
+      >
+        <i class="fas fa-undo"></i>
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Clear formatting"
+        (click)="applyStyle({ key: 'removeFormat' })"
+      >
+        <i class="fas fa-ban"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Aligment -->
+  <div class="btn-group field has-addons">
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Align text left"
+        (click)="applyStyle({ key: 'justifyLeft' })"
+      >
+        <i class="fas fa-align-left"></i>
+      </button>
+    </div>
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Center text"
+        (click)="applyStyle({ key: 'justifyCenter' })"
+      >
+        <i class="fas fa-align-center"></i>
+      </button>
+    </div>
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Align text right"
+        (click)="applyStyle({ key: 'justifyRight' })"
+      >
+        <i class="fas fa-align-right"></i>
+      </button>
+    </div>
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Justify text"
+        (click)="applyStyle({ key: 'justifyFull' })"
+      >
+        <i class="fas fa-align-justify"></i>
+      </button>
+    </div>
+    <!--<div class="control">
+
+      <button type="button" [disabled]="disabledToolbar" class="button" title="Increase indent" (click)="applyStyle({ key: 'indent' })"><i class="fas fa-indent"></i></button>
+      <div class="control">
+
+      </div>
+      <button type="button" [disabled]="disabledToolbar" class="button" title="Decrease indent" (click)="applyStyle({ key: 'outdent' })"><i class="fas fa-outdent"></i></button> -->
+  </div>
+
+  <!-- Media and state -->
+  <div class="btn-group field has-addons">
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Horizontal line"
+        (click)="applyStyle({ key: 'insertHorizontalRule' })"
+      >
+        &mdash;
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        class="button"
+        title="Insert Image"
+        [disabled]="disabledToolbar"
+        (click)="imagePopover?.toggle()"
+      >
+        <i class="fa fa-image"></i>
+      </button>
+      <app-popover #imagePopover>
+        <app-image-form
+          [popoverRef]="imagePopover"
+          (save)="applyStyle($event)"
+        ></app-image-form>
+      </app-popover>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        class="button"
+        title="Insert / edit link"
+        [disabled]="disabledToolbar"
+        (click)="linkPopover?.toggle()"
+      >
+        <i class="fas fa-link"></i>
+      </button>
+
+      <app-popover #linkPopover>
+        <app-link-form
+          [popoverRef]="linkPopover"
+          (save)="applyStyle($event)"
+        ></app-link-form>
+      </app-popover>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Remove link"
+        (click)="applyStyle({ key: 'unlink' })"
+      >
+        <i class="fas fa-unlink"></i>
+      </button>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        class="button"
+        title="Insert Youtube video"
+        [disabled]="disabledToolbar"
+        (click)="videoPopover?.toggle()"
+      >
+        <i class="fa fa-video"></i>
+      </button>
+
+      <app-popover #videoPopover>
+        <app-video-form
+          [popoverRef]="videoPopover"
+          (save)="applyStyle($event)"
+        ></app-video-form>
+      </app-popover>
+    </div>
+
+    <div class="control">
+      <button
+        type="button"
+        class="button"
+        title="Show Code"
+        (click)="showInnerCode()"
+      >
+        <i class="fas fa-code"></i>
+      </button>
+    </div>
+    <!-- <div class="control">
+      <button
+        type="button"
+        [disabled]="disabledToolbar"
+        class="button"
+        title="Math Formula"
+      >
+        <i class="fas fa-subscript"></i> / <i class="fas fa-divide"></i>
+      </button>
+    </div> -->
+    <div class="control">
+      <button type="button" class="button" title="Characters" disabled>
+        Chars: {{ charactersLen }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Popover Templates -->
+<!-- <ng-template #imageTemplate>
+  <app-image-form (save)="applyStyle($event)"></app-image-form>
+</ng-template> -->
+
+<!-- <ng-template #linkTemplate>
+  <app-link-form (save)="applyStyle($event)"></app-link-form>
+</ng-template>
+
+<ng-template #videoTemplate>
+  <app-video-form (save)="applyStyle($event)"></app-video-form>
+</ng-template> -->

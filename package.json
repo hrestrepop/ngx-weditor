@@ -1,0 +1,32 @@
+{
+  "name": "ngx-weditor",
+  "version": "2.0.0-beta.0",
+  "author": "Harrisson Restrepo <harrissonrestrepo@gmail.com>",
+  "license": "MIT",
+  "description": "> A Simple WYSIWYG Editor for Angular8+ Applications.",
+  "homepage": "https://github.com/hrestrepop/ngx-weditor#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrestrepop/ngx-weditor.git"
+  },
+  "keywords": [
+    "angular6",
+    "editorangular6",
+    "wysiwyg",
+    "editorblog",
+    "editorrichtext",
+    "rich",
+    "text"
+  ],
+  "bugs": {
+    "url": "https://github.com/hrestrepop/ngx-weditor/issues"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.1.1",
+    "@angular/core": "^9.1.1",
+    "tslib": "^1.10.0"
+  }
+}

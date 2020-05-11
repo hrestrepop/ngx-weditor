@@ -1,0 +1,14 @@
+.toolbar {
+  background-color: #f0f0f0;
+  border: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 10px 5px;
+  margin-left: 0;
+  justify-content: flex-start;
+
+  .btn-group {
+    margin-right: 12px;
+    margin-bottom: 10px;
+  }
+}

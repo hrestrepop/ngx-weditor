@@ -1,0 +1,73 @@
+/* resizer */
+
+.resizer-overlay {
+  z-index: 100;
+  position: absolute;
+  display: none;
+}
+
+.styles-bar {
+  display: flex;
+  margin-left: 25px;
+  margin-top: 0;
+}
+
+.resizer-overlay > .resizer-info {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  border: 1px solid #333;
+  background-color: #fff;
+  padding: 0 4px;
+  opacity: 0.7;
+}
+
+.resizer-overlay > .resizer-background {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  left: 5px;
+  top: 5px;
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.resizer-overlay > .resizer-corner {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+}
+
+.resizer-overlay > .resizer-corner-tl {
+  top: 0;
+  left: 0;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.resizer-overlay > .resizer-corner-tr {
+  top: 0;
+  right: 0;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.resizer-overlay > .resizer-corner-bl {
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.resizer-overlay > .resizer-corner-br {
+  bottom: 0;
+  right: 0;
+  border: 1px solid black;
+  cursor: se-resize;
+  background-color: white;
+}
+
+.btn-group {
+  margin-right: 12px;
+  margin-bottom: 10px;
+}

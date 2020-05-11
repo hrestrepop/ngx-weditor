@@ -1,0 +1,42 @@
+<div class="link-form">
+  <h6 class="subtitle is-6">Link configuration</h6>
+  <form novalidate (ngSubmit)="handleSubmit()" [formGroup]="form">
+    <div class="field">
+      <div class="control">
+        <input
+          type="text"
+          class="input is-small"
+          placeholder="Link text"
+          formControlName="text"
+        />
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <input
+          type="text"
+          class="input is-small"
+          placeholder="Link URL"
+          formControlName="link"
+        />
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        formControlName="target"
+      />
+      <label class="form-check-label">
+        New window?
+      </label>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="button is-light is-small">
+        Ok
+      </button>
+    </div>
+  </form>
+</div>
